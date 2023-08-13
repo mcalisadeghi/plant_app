@@ -47,22 +47,43 @@ class _HomePageState extends State<HomePage> {
             ),
             controller: _pageController,
             children: [
-              Column(
-                children: [
-                  SizedBox(
-                    height: 350,
-                    child: Image.asset(
-                      '',
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 50.0,
+                  right: 50.0,
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 350,
+                      child: Image.asset(
+                        '',
+                      ),
                     ),
-                  ),
-                  Text(
-                    Constants.titleOne,
-                  ),
-                  Text(
-                    Constants.descriptionOne,
-                  ),
-                ],
-              )
+                    const SizedBox(
+                      height: 30.0,
+                    ),
+                    Text(
+                      Constants.titleOne,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        color: Constants.primaryColor,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    Text(
+                      Constants.descriptionOne,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        color: Constants.greyColor,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ],

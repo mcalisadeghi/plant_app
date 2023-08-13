@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Constants {
   static Color primaryColor = Colors.green;
   static Color blackColor = Colors.black;
+  static Color greyColor = Colors.grey;
   static String titleOne = 'titleOne';
   static String descriptionOne = 'description_one';
   static String titleTwo = 'titleTwo';
