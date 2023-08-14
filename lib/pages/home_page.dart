@@ -70,9 +70,10 @@ class _HomePageState extends State<HomePage> {
             controller: _pageController,
             children: [
               CreateContetnPage(
-                description: Constants.descriptionOne,
-                image: 'assets/image/pic1.jpg',
                 title: Constants.titleOne,
+                description: Constants.descriptionOne,
+                image:
+                    'https://pbs.twimg.com/media/F0sGAIfXoAcJJid?format=jpg&name=900x900', //assets/image/pic1.jpg
               ),
             ],
           ),
@@ -90,8 +91,8 @@ class _HomePageState extends State<HomePage> {
 
 class CreateContetnPage extends StatelessWidget {
   final String image;
-  final title;
-  final description;
+  final String title;
+  final String description;
   const CreateContetnPage({
     required this.image,
     required this.title,
@@ -110,7 +111,7 @@ class CreateContetnPage extends StatelessWidget {
         children: [
           SizedBox(
             height: 350,
-            child: Image.asset(
+            child: Image.network(
               image,
             ),
           ),
