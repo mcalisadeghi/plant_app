@@ -16,12 +16,12 @@ class _HomePageState extends State<HomePage> {
       duration: const Duration(
         microseconds: 500,
       ),
-      height: slideActive ? 20.0 : 10.0,
+      height: slideActive ? 200.0 : 10.0,
       margin: const EdgeInsets.only(
         right: 5.0,
       ),
       decoration: BoxDecoration(
-        color: Constants.primaryColor,
+        color: Colors.red,
         borderRadius: BorderRadius.circular(
           5.0,
         ),
@@ -75,14 +75,50 @@ class _HomePageState extends State<HomePage> {
                 image:
                     'https://pbs.twimg.com/media/F0sGAIfXoAcJJid?format=jpg&name=900x900', //assets/image/pic1.jpg
               ),
+              CreateContetnPage(
+                title: Constants.titleTwo,
+                description: Constants.descriptionTwo,
+                image:
+                    'https://pbs.twimg.com/media/F0sGAIfXoAcJJid?format=jpg&name=900x900', //assets/image/pic1.jpg
+              ),
+              CreateContetnPage(
+                title: Constants.titleThree,
+                description: Constants.descriptionThree,
+                image:
+                    'https://pbs.twimg.com/media/F0sGAIfXoAcJJid?format=jpg&name=900x900', //assets/image/pic1.jpg
+              ),
             ],
           ),
           Positioned(
-              bottom: 80.0,
-              left: 30.0,
-              child: Row(
-                children: _buildIndicator(),
-              ))
+            // bottom: 80.0,
+            // left: 30.0,
+            // right: 50.0,
+            // height: 20.0,
+            child: Row(
+              children: _buildIndicator(),
+            ),
+          ),
+          Positioned(
+            right: 30.0,
+            bottom: 60.0,
+            child: Container(
+              padding: const EdgeInsets.all(
+                4.0,
+              ),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Constants.primaryColor,
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white,
+                  size: 25.0,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -136,9 +172,9 @@ class CreateContetnPage extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          const SizedBox(
-            height: 30.0,
-          ),
+          // const SizedBox(
+          //   height: 30.0,
+          // ),
         ],
       ),
     );
