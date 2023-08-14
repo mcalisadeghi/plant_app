@@ -110,7 +110,30 @@ class _HomePageState extends State<HomePage> {
                 color: Constants.primaryColor,
               ),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(
+                    () {
+                      if (currentIndex < 2) {
+                        currentIndex++;
+                        if (currentIndex < 3) {
+                          _pageController.nextPage(
+                            duration: const Duration(
+                              microseconds: 300,
+                            ),
+                            curve: Curves.easeIn,
+                          );
+                        }
+                      } else {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPageTest1(),
+                          ),
+                        );
+                      }
+                    },
+                  );
+                },
                 icon: const Icon(
                   Icons.arrow_forward_ios,
                   color: Colors.white,
@@ -204,6 +227,22 @@ class CreatePicWidget extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class LoginPageTest1 extends StatefulWidget {
+  const LoginPageTest1({super.key});
+
+  @override
+  State<LoginPageTest1> createState() => _LoginPageTest1State();
+}
+
+class _LoginPageTest1State extends State<LoginPageTest1> {
+  @override
+  Widget build(BuildContext context) {
+    return const Text(
+      'Login Page!',
     );
   }
 }
