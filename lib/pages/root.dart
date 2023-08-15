@@ -4,6 +4,9 @@ import 'package:flutter_application_1/pages/card_page.dart';
 import 'package:flutter_application_1/pages/favorite_page.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/profile_page.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:flutter_application_1/pages/scan_page.dart';
+import 'package:page_transition/page_transition.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({super.key});
@@ -42,7 +45,7 @@ class _RootPageState extends State<RootPage> {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               Icon(
                 color: Constants.blackColor,
                 Icons.notifications,
@@ -65,7 +68,37 @@ class _RootPageState extends State<RootPage> {
         children: page,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            PageTransition(
+              child: const ScanPage(),
+              type: PageTransitionType.bottomToTop,
+            ),
+          );
+        },
+        backgroundColor: Constants.primaryColor,
+        child: Image.asset(
+          'assets/images/code-scan-two.png',
+          height: 30.0,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        splashColor: Constants.primaryColor,
+        activeColor: Constants.primaryColor,
+        activeIndex: bottomIndex,
+        inactiveColor: Constants.primaryColor,
+        gapLocation: GapLocation.center,
+        icons: iconList,
+        notchSmoothness: NotchSmoothness.softEdge,
+        onTap: (int index) {
+          setState(
+            () {
+              bottomIndex = index;
+            },
+          );
+        },
       ),
     );
   }
