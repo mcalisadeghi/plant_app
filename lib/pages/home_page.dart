@@ -9,6 +9,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int selectedIndex = 0;
+  final List<String> _planTypes = [
+    'پیشنهادی',
+    'اپارتمانی',
+    'محل کار',
+    'باغچه ای',
+    'سمی',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
