@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ScanPage extends StatefulWidget {
-  const ScanPage({super.key});
+class FavoritePage extends StatefulWidget {
+  const FavoritePage({super.key});
 
   @override
-  State<ScanPage> createState() => _ScanPageState();
+  State<FavoritePage> createState() => _FavoritePageState();
 }
 
-class _ScanPageState extends State<ScanPage> {
+class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
