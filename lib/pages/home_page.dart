@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
             child: Center(
               child: Container(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 12.0,
+                  horizontal: 16.0,
                 ),
                 decoration: BoxDecoration(
                   color: Constants.primaryColor.withOpacity(
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(
-                      Icons.search,
+                      Icons.mic,
                       color: Constants.blackColor.withOpacity(
                         0.6,
                       ),
@@ -48,12 +48,13 @@ class _HomePageState extends State<HomePage> {
                           textAlign: TextAlign.end,
                           showCursor: false,
                           decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(
-                                right: 5.0,
-                              ),
-                              hintText: 'search',
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none),
+                            contentPadding: EdgeInsets.only(
+                              right: 5.0,
+                            ),
+                            hintText: 'search',
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                          ),
                           style: TextStyle(
                             fontSize: 14.0,
                           ),
@@ -61,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Icon(
-                      Icons.mic,
+                      Icons.search,
                       color: Constants.blackColor.withOpacity(
                         0.6,
                       ),
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
