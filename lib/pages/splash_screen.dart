@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/const/constansts.dart';
+import 'package:flutter_application_1/pages/root.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -127,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const LoginPageTest1(),
+                            builder: (context) => const RootPage(),
                           ),
                         );
                       }
@@ -227,22 +228,6 @@ class CreatePicWidget extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class LoginPageTest1 extends StatefulWidget {
-  const LoginPageTest1({super.key});
-
-  @override
-  State<LoginPageTest1> createState() => _LoginPageTest1State();
-}
-
-class _LoginPageTest1State extends State<LoginPageTest1> {
-  @override
-  Widget build(BuildContext context) {
-    return const Text(
-      'Login Page!',
     );
   }
 }
