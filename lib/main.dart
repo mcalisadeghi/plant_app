@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/home_page.dart';
+import 'package:flutter_application_1/pages/splash_screen.dart';
 
+// import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 void main() {
   runApp(const MyApp());
 }
