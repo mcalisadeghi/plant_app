@@ -78,12 +78,12 @@ class _HomePageState extends State<HomePage> {
               CreateContetnPage(
                 title: Constants.titleTwo,
                 description: Constants.descriptionTwo,
-                image: 'assets/images/plant-two.png', //assets/image/pic1.jpg
+                image: 'assets/images/plant-two.png',
               ),
               CreateContetnPage(
                 title: Constants.titleThree,
                 description: Constants.descriptionThree,
-                image: 'assets/images/plant-three.png', //assets/image/pic1.jpg
+                image: 'assets/images/plant-three.png',
               ),
             ],
           ),
@@ -165,7 +165,7 @@ class CreateContetnPage extends StatelessWidget {
         right: 50.0,
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           SizedBox(
             height: 350,
             child: Image.asset(
@@ -193,9 +193,9 @@ class CreateContetnPage extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          // const SizedBox(
-          //   height: 30.0,
-          // ),
+          const SizedBox(
+            height: 30.0,
+          ),
         ],
       ),
     );
