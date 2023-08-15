@@ -73,28 +73,25 @@ class _HomePageState extends State<HomePage> {
               CreateContetnPage(
                 title: Constants.titleOne,
                 description: Constants.descriptionOne,
-                image:
-                    'https://pbs.twimg.com/media/F0sGAIfXoAcJJid?format=jpg&name=900x900', //assets/image/pic1.jpg
+                image: 'assets/images/plant-one.png',
               ),
               CreateContetnPage(
                 title: Constants.titleTwo,
                 description: Constants.descriptionTwo,
-                image:
-                    'https://pbs.twimg.com/media/F0sGAIfXoAcJJid?format=jpg&name=900x900', //assets/image/pic1.jpg
+                image: 'assets/images/plant-two.png', //assets/image/pic1.jpg
               ),
               CreateContetnPage(
                 title: Constants.titleThree,
                 description: Constants.descriptionThree,
-                image:
-                    'https://pbs.twimg.com/media/F0sGAIfXoAcJJid?format=jpg&name=900x900', //assets/image/pic1.jpg
+                image: 'assets/images/plant-three.png', //assets/image/pic1.jpg
               ),
             ],
           ),
           Positioned(
-            // bottom: 80.0,
-            // left: 30.0,
-            // right: 50.0,
-            // height: 20.0,
+            bottom: 80.0,
+            left: 30.0,
+            right: 50.0,
+            height: 20.0,
             child: Row(
               children: _buildIndicator(),
             ),
@@ -171,7 +168,7 @@ class CreateContetnPage extends StatelessWidget {
         children: [
           SizedBox(
             height: 350,
-            child: Image.network(
+            child: Image.asset(
               image,
             ),
           ),
