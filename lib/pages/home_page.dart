@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/const/constansts.dart'; // Import necessary dependencies
+import 'package:flutter_application_1/const/constansts.dart';
+import 'package:flutter_application_1/models/plant.dart'; // Import necessary dependencies
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key}); // Constructor for HomePage
@@ -19,9 +20,14 @@ class _HomePageState extends State<HomePage> {
     'باغچه ای',
     'سمی',
   ];
+  bool toggelIsF(bool isFavorites) {
+    return !isFavorites;
+  }
 
+  final List<Plant> _plantList = Plant.plantList;
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       // Search box
       body: Column(
@@ -35,6 +41,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16.0,
                 ),
+                width: size.width * 0.9,
                 decoration: BoxDecoration(
                   color: Constants.primaryColor.withOpacity(
                     0.1,
@@ -91,6 +98,7 @@ class _HomePageState extends State<HomePage> {
               vertical: 10.0,
             ),
             height: 70.0,
+            width: size.width,
             child: ListView.builder(
               reverse: true,
               scrollDirection: Axis.horizontal,
@@ -121,6 +129,177 @@ class _HomePageState extends State<HomePage> {
                                 .blackColor, // Black color for other categories
                       ),
                     ),
+                  ),
+                );
+              },
+            ),
+          ),
+          // Product One
+          SizedBox(
+            height: size.height * 0.3,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              reverse: true,
+              itemCount: _plantList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  width: 200.0,
+                  decoration: BoxDecoration(
+                    color: Constants.primaryColor.withOpacity(
+                      0.8,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      20.0,
+                    ),
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 10.0,
+                        right: 20.0,
+                        child: Container(
+                          height: 40.0,
+                          width: 40.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(
+                              50.0,
+                            ),
+                          ),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              _plantList[index].isFavorated == true
+                                  ? Icons.favorite
+                                  : Icons.favorite_border_outlined,
+                              color: Constants.primaryColor,
+                              size: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 50.0,
+                        right: 50.0,
+                        top: 50.0,
+                        bottom: 50.0,
+                        child: Image.asset(
+                          _plantList[index].imageURL,
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 15,
+                        left: 20,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0,
+                            vertical: 2.0,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(
+                              20.0,
+                            ),
+                          ),
+                          child: Text(
+                            r'$85' + _plantList[index].price.toString(),
+                            style: TextStyle(
+                              color: Constants.primaryColor,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 15,
+                        right: 20.0,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              _plantList[index].category,
+                              style: const TextStyle(
+                                color: Colors.white70,
+                                fontSize: 40.0,
+                              ),
+                            ),
+                            Text(
+                              _plantList[index].plantName,
+                              style: const TextStyle(
+                                color: Colors.white70,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+          // new plants - text
+          Container(
+            alignment: Alignment.centerRight,
+            padding: const EdgeInsets.only(
+              right: 18,
+              bottom: 15,
+              top: 20.0,
+            ),
+            child: const Text(
+              'new plants',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          // new plants - pruduct 2
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 18.0,
+            ),
+            height: size.height * 0.3,
+            child: ListView.builder(
+              itemCount: _plantList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    color: Constants.primaryColor.withOpacity(
+                      0.1,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      10.0,
+                    ),
+                  ),
+                  height: 100.0,
+                  width: size.width,
+                  margin: const EdgeInsets.only(
+                    bottom: 10.0,
+                    top: 10.0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        '',
+                      ),
+                      Stack(
+                        children: [
+                          Container(
+                            width: 60.0,
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              color: Constants.greyColor,
+                              shape: BoxShape.circle,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
                 );
               },
