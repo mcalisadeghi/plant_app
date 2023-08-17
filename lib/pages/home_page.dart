@@ -167,7 +167,16 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(
+                                () {
+                                  bool isFavorites = toggelIsF(
+                                    _plantList[index].isFavorated,
+                                  );
+                                  _plantList[index].isFavorated = isFavorites;
+                                },
+                              );
+                            },
                             icon: Icon(
                               _plantList[index].isFavorated == true
                                   ? Icons.favorite
