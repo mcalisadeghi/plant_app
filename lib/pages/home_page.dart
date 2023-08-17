@@ -274,7 +274,7 @@ class _HomePageState extends State<HomePage> {
                       10.0,
                     ),
                   ),
-                  height: 100.0,
+                  height: 70.0,
                   width: size.width,
                   margin: const EdgeInsets.only(
                     bottom: 10.0,
@@ -284,10 +284,24 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text(
-                        '',
+                      Row(
+                        children: [
+                          SizedBox(
+                            height: 20.0,
+                            child: Image.asset(
+                              'assets/imeges/PriceUnit-green.png',
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Text(
+                            _plantList[index].price.toString(),
+                          ),
+                        ],
                       ),
                       Stack(
+                        clipBehavior: Clip.none,
                         children: [
                           Container(
                             width: 60.0,
@@ -296,7 +310,37 @@ class _HomePageState extends State<HomePage> {
                               color: Constants.greyColor,
                               shape: BoxShape.circle,
                             ),
-                          )
+                          ),
+                          Positioned(
+                            bottom: 5.0,
+                            left: 0,
+                            right: 0,
+                            child: Image.asset(
+                              _plantList[index].imageURL,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 5.0,
+                            right: 80.0,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  _plantList[index].category,
+                                  style: const TextStyle(
+                                    fontSize: 13.0,
+                                  ),
+                                ),
+                                Text(
+                                  _plantList[index].plantName,
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Constants.blackColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ],
