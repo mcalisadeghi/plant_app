@@ -23,9 +23,9 @@ class _DetaiPageeState extends State<DetaiPagee> {
         children: <Widget>[
           // App bar
           Positioned(
-            top: 50.0,
-            left: 25.0,
-            right: 30.0,
+            top: 25.0,
+            left: 50.0,
+            right: 0.0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -77,40 +77,48 @@ class _DetaiPageeState extends State<DetaiPagee> {
             child: Container(
               width: size.width * 0.8,
               height: size.height * 0.8,
-              padding: EdgeInsets.all(
+              padding: const EdgeInsets.all(
                 20.0,
               ),
               child: Stack(
                 children: [
+                  // for plant pic for priduct img
                   Positioned(
-                    top: 10.0,
+                    top: 70.0,
+                    left: 50.0,
+                    child: SizedBox(
+                      height: 350.0,
+                      child: Image.asset(
+                        plantL[widget.id].imageURL,
+                      ),
+                    ),
+                  ),
+                  // for get plant detels
+                  // plant Feature
+                  Positioned(
+                    top: 100.0,
                     right: 0.0,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'اندازه گیاه ',
-                              style: TextStyle(
-                                color: Constants.blackColor,
-                                fontSize: 10.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              'کوچک',
-                              style: TextStyle(
-                                color: Constants.blackColor,
-                                fontSize: 10.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
+                    child: SizedBox(
+                      height: 200.0,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          PlantDetils(
+                            title: 'اندازه گیاه',
+                            planFeature: plantL[widget.id].size,
+                          ),
+                          PlantDetils(
+                            title: 'رطوبت هوا ',
+                            planFeature: plantL[widget.id].humidity.toString(),
+                          ),
+                          PlantDetils(
+                            title: 'دمای نگه داری',
+                            planFeature:
+                                plantL[widget.id].temperature.toString(),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -119,6 +127,42 @@ class _DetaiPageeState extends State<DetaiPagee> {
           ),
         ],
       ),
+    );
+  }
+}
+
+// inishial date get for plant deatels
+class PlantDetils extends StatelessWidget {
+  final String title;
+  final String planFeature;
+  const PlantDetils({
+    required this.title,
+    required this.planFeature,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            color: Constants.blackColor,
+            fontSize: 10.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          planFeature,
+          style: TextStyle(
+            color: Constants.blackColor,
+            fontSize: 10.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     );
   }
 }
