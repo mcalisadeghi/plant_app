@@ -136,8 +136,8 @@ class _DetaiPageeState extends State<DetaiPagee> {
             child: Container(
               padding: const EdgeInsets.only(
                 top: 80.0,
-                left: 30.0,
-                right: 30.0,
+                left: 60.0,
+                right: 60.0,
               ),
               height: size.height * 0.4,
               width: size.width,
@@ -157,8 +157,36 @@ class _DetaiPageeState extends State<DetaiPagee> {
               child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  Text(
-                    'data',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(
+                            Icons.star,
+                          ),
+                          Text(
+                            '10/10',
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          Text(
+                            'data,',
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            r'$85',
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),
