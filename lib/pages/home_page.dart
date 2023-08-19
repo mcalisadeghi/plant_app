@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                         child: DetaiPagee(
                           id: _plantList[index].plantId,
                         ),
-                        type: PageTransitionType.leftToRightJoined,
+                        type: PageTransitionType.leftToRight,
                       ),
                     );
                   },
@@ -299,7 +299,7 @@ class _HomePageState extends State<HomePage> {
                         child: DetaiPagee(
                           id: _plantList[index].plantId,
                         ),
-                        type: PageTransitionType.leftToRightJoined,
+                        type: PageTransitionType.leftToRight,
                       ),
                     );
                   },

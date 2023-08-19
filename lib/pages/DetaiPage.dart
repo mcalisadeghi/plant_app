@@ -19,13 +19,14 @@ class _DetaiPageeState extends State<DetaiPagee> {
     List<Plant> plantL = Plant.plantList;
     return Scaffold(
       body: Stack(
-        children: [
+        children: <Widget>[
           Positioned(
             top: 50.0,
             left: 25.0,
+            right: 30.0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
@@ -42,11 +43,27 @@ class _DetaiPageeState extends State<DetaiPagee> {
                       ),
                     ),
                     child: Icon(
-                      plantL[widget.id].isFavorated == true
-                          ? Icons.favorite
-                          : Icons.favorite_border,
+                      Icons.close,
                       color: Constants.primaryColor,
                     ),
+                  ),
+                ),
+                Container(
+                  height: 50.0,
+                  width: 50.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      50.0,
+                    ),
+                    color: Constants.primaryColor.withOpacity(
+                      0.15,
+                    ),
+                  ),
+                  child: Icon(
+                    plantL[widget.id].isFavorated == true
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    color: Constants.primaryColor,
                   ),
                 ),
               ],
