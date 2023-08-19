@@ -25,7 +25,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
           Positioned(
             top: 25.0,
             left: 50.0,
-            right: 0.0,
+            right: 50.0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -74,6 +74,9 @@ class _DetaiPageeState extends State<DetaiPagee> {
             ),
           ),
           Positioned(
+            top: 43.0,
+            left: 20.0,
+            right: 20.0,
             child: Container(
               width: size.width * 0.8,
               height: size.height * 0.8,
@@ -81,7 +84,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                 20.0,
               ),
               child: Stack(
-                children: [
+                children: <Widget>[
                   // for plant pic for priduct img
                   Positioned(
                     top: 70.0,
@@ -103,7 +106,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: <Widget>[
                           PlantDetils(
                             title: 'اندازه گیاه',
                             planFeature: plantL[widget.id].size,
@@ -120,6 +123,42 @@ class _DetaiPageeState extends State<DetaiPagee> {
                         ],
                       ),
                     ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            // top: 400.0,
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: Container(
+              padding: const EdgeInsets.only(
+                top: 80.0,
+                left: 30.0,
+                right: 30.0,
+              ),
+              height: size.height * 0.4,
+              width: size.width,
+              decoration: BoxDecoration(
+                color: Constants.primaryColor.withOpacity(
+                  0.5,
+                ),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(
+                    30.0,
+                  ),
+                  topRight: Radius.circular(
+                    30.0,
+                  ),
+                ),
+              ),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    'data',
                   ),
                 ],
               ),
@@ -145,7 +184,7 @@ class PlantDetils extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
+      children: <Widget>[
         Text(
           title,
           style: TextStyle(
