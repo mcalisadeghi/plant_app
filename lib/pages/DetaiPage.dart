@@ -154,7 +154,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                   ),
                 ),
               ),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   Row(
@@ -166,9 +166,15 @@ class _DetaiPageeState extends State<DetaiPagee> {
                         children: <Widget>[
                           Icon(
                             Icons.star,
+                            size: 30.0,
+                            color: Constants.primaryColor,
                           ),
                           Text(
-                            '10/10',
+                            plantL[widget.id].rating.toString(),
+                            style: TextStyle(
+                              fontSize: 23.0,
+                              color: Constants.primaryColor,
+                            ),
                           ),
                         ],
                       ),
@@ -176,17 +182,54 @@ class _DetaiPageeState extends State<DetaiPagee> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           Text(
-                            'data,',
+                            plantL[widget.id].plantName.toString(),
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              color: Constants.primaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
-                            r'$85',
+                          Row(
+                            children: <Widget>[
+                              SizedBox(
+                                height: 19.0,
+                                child: Image.asset(
+                                  'assets/imeges/PriceUnit-green.png',
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5.0,
+                              ),
+                              Text(
+                                plantL[widget.id].price.toString(),
+                                style: TextStyle(
+                                  fontSize: 24.0,
+                                  color: Constants.blackColor,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ],
+                  ),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  Text(
+                    plantL[widget.id].decription.toString(),
+                    textDirection: TextDirection.rtl,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      height: 1.6,
+                      fontSize: 18.0,
+                      color: Constants.blackColor.withOpacity(
+                        0.7,
+                      ),
+                    ),
                   ),
                 ],
               ),
