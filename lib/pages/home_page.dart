@@ -674,8 +674,8 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 18.0),
               height: size.height * 0.3,
               child: ListView.builder(
-                itemCount: _plantList.length,
                 physics: const BouncingScrollPhysics(),
+                itemCount: _plantList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return NewPlantWidg(
                     plantList: _plantList,

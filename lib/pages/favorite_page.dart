@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/plant.dart';
+import 'package:flutter_application_1/widgets/plant_widget.dart';
 
 class FavoritePage extends StatefulWidget {
   final List<Plant> addtofavorite;
@@ -50,9 +51,11 @@ class _FavoritePageState extends State<FavoritePage> {
               ),
               height: size.height * 0.5,
               child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
                   itemCount: widget.addtofavorite.length,
                   itemBuilder: (context, index) {
-                    return const Text('data');
+                    return NewPlantWidg(
+                        plantList: widget.addtofavorite, index: index);
                   }),
             ),
     );
