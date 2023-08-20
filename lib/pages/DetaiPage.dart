@@ -237,6 +237,76 @@ class _DetaiPageeState extends State<DetaiPagee> {
           ),
         ],
       ),
+      floatingActionButton: SizedBox(
+        width: size.width * 0.9,
+        height: 50.0,
+        child: Row(
+          children: [
+            Container(
+              height: 50.0,
+              width: 50.0,
+              decoration: BoxDecoration(
+                color: Constants.primaryColor.withOpacity(
+                  0.5,
+                ),
+                borderRadius: BorderRadius.circular(
+                  50.0,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(
+                      0.0,
+                      1.1,
+                    ),
+                    blurRadius: 5.0,
+                    color: Constants.primaryColor.withOpacity(
+                      0.3,
+                    ),
+                  ),
+                ],
+              ),
+              child: const Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(
+              width: 20.0,
+              child: Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Constants.primaryColor,
+                    borderRadius: BorderRadius.circular(
+                      10.0,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(
+                          0.0,
+                          1.1,
+                        ),
+                        blurRadius: 5.0,
+                        color: Constants.primaryColor.withOpacity(
+                          0.3,
+                        ),
+                      ),
+                    ],
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'سبد خرید',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
