@@ -254,7 +254,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    offset: Offset(
+                    offset: const Offset(
                       0.0,
                       1.1,
                     ),
@@ -281,7 +281,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        offset: Offset(
+                        offset: const Offset(
                           0.0,
                           1.1,
                         ),
