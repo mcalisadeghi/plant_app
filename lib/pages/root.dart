@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/const/constansts.dart';
+import 'package:flutter_application_1/models/plant.dart';
 import 'package:flutter_application_1/pages/card_page.dart';
 import 'package:flutter_application_1/pages/favorite_page.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
@@ -17,12 +18,21 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int bottomIndex = 0;
-  List<Widget> page = const [
-    HomePage(),
-    FavoritePage(),
-    CardPage(),
-    ProfilePage(),
-  ];
+  List<Plant> favorites = [];
+  List<Plant> myCart = [];
+  List<Widget> page() {
+    return [
+      const HomePage(),
+      FavoritePage(
+        addtofavorite: favorites,
+      ),
+      CardPage(
+        addtocard: myCart,
+      ),
+      const ProfilePage(),
+    ];
+  }
+
   List<String> menueTitle = [
     'home',
     'favorite',
@@ -65,7 +75,7 @@ class _RootPageState extends State<RootPage> {
       ),
       body: IndexedStack(
         index: bottomIndex,
-        children: page,
+        children: page(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -96,6 +106,10 @@ class _RootPageState extends State<RootPage> {
           setState(
             () {
               bottomIndex = index;
+              final List<Plant> addF = Plant.getFavoritedPlants();
+              final List<Plant> addCard = Plant.addedToCartPlants();
+              favorites = addF.toSet().toList();
+              myCart = addCard.toSet().toList();
             },
           );
         },

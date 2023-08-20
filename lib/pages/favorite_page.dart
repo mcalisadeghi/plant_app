@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/plant.dart';
 
 class FavoritePage extends StatefulWidget {
-  const FavoritePage({super.key});
+  final List<Plant> addtofavorite;
+  const FavoritePage({
+    super.key,
+    required this.addtofavorite,
+  });
 
   @override
   State<FavoritePage> createState() => _FavoritePageState();
