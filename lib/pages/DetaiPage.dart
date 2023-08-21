@@ -15,6 +15,7 @@ class DetaiPagee extends StatefulWidget {
 }
 
 class _DetaiPageeState extends State<DetaiPagee> {
+  // Function to toggle the selected state
   bool toggleSelected(bool isSelected) {
     return !isSelected;
   }
@@ -26,7 +27,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          // App bar
+          // App bar with close and like buttons
           Positioned(
             top: 25.0,
             left: 50.0,
@@ -36,9 +37,10 @@ class _DetaiPageeState extends State<DetaiPagee> {
               children: <Widget>[
                 GestureDetector(
                   onTap: () {
+                    // Navigate back when the close button is tapped
                     Navigator.pop(context);
                   },
-                  // close button
+                  // Close button
                   child: Container(
                     height: 50.0,
                     width: 50.0,
@@ -56,7 +58,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                     ),
                   ),
                 ),
-                // like button
+                // Like button
                 Container(
                   height: 50.0,
                   width: 50.0,
@@ -69,6 +71,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                     ),
                   ),
                   child: Icon(
+                    // Show filled or outline heart icon based on favorited state
                     plantL[widget.id].isFavorated == true
                         ? Icons.favorite
                         : Icons.favorite_border,
@@ -79,6 +82,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
             ),
           ),
           Positioned(
+            // Plant image and details section
             top: 43.0,
             left: 20.0,
             right: 20.0,
@@ -90,7 +94,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
               ),
               child: Stack(
                 children: <Widget>[
-                  // for plant pic for priduct img
+                  // Plant image
                   Positioned(
                     top: 70.0,
                     left: 50.0,
@@ -101,8 +105,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                       ),
                     ),
                   ),
-                  // for get plant detels
-                  // plant Feature
+                  // Plant feature details
                   Positioned(
                     top: 100.0,
                     right: 0.0,
@@ -112,14 +115,17 @@ class _DetaiPageeState extends State<DetaiPagee> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
+                          // Display plant size
                           PlantDetils(
                             title: 'اندازه گیاه',
                             planFeature: plantL[widget.id].size,
                           ),
+                          // Display humidity
                           PlantDetils(
                             title: 'رطوبت هوا ',
                             planFeature: plantL[widget.id].humidity.toString(),
                           ),
+                          // Display temperature range
                           PlantDetils(
                             title: 'دمای نگه داری',
                             planFeature:
@@ -134,6 +140,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
             ),
           ),
           Positioned(
+            // Positioned at the bottom of the screen
             bottom: 0.0,
             left: 0.0,
             right: 0.0,
@@ -143,11 +150,11 @@ class _DetaiPageeState extends State<DetaiPagee> {
                 left: 60.0,
                 right: 60.0,
               ),
-              height: size.height * 0.4,
-              width: size.width,
+              height: size.height * 0.4, // Define the container's height
+              width: size.width, // Define the container's width
               decoration: BoxDecoration(
                 color: Constants.primaryColor.withOpacity(
-                  0.5,
+                  0.5, // Set a semi-transparent background color
                 ),
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(
@@ -161,10 +168,12 @@ class _DetaiPageeState extends State<DetaiPagee> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
+                  // Row for displaying star icon and rating
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
+                      // Display star icon
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -173,6 +182,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                             size: 30.0,
                             color: Constants.primaryColor,
                           ),
+                          // Display the plant's rating
                           Text(
                             plantL[widget.id].rating.toString(),
                             style: TextStyle(
@@ -185,6 +195,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
+                          // Display the plant's name
                           Text(
                             plantL[widget.id].plantName.toString(),
                             style: TextStyle(
@@ -196,8 +207,10 @@ class _DetaiPageeState extends State<DetaiPagee> {
                           const SizedBox(
                             height: 10,
                           ),
+                          // Row for displaying price icon and price
                           Row(
                             children: <Widget>[
+                              // Display price icon
                               SizedBox(
                                 height: 19.0,
                                 child: Image.asset(
@@ -207,6 +220,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                               const SizedBox(
                                 width: 5.0,
                               ),
+                              // Display the plant's price
                               Text(
                                 plantL[widget.id].price.toString(),
                                 style: TextStyle(
@@ -223,6 +237,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
                   const SizedBox(
                     height: 15.0,
                   ),
+                  // Display the plant's description
                   Text(
                     plantL[widget.id].decription.toString(),
                     textDirection: TextDirection.rtl,
@@ -246,6 +261,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
         height: 50.0,
         child: Row(
           children: [
+            // Shopping cart button
             Container(
               height: 50.0,
               width: 50.0,
@@ -282,10 +298,12 @@ class _DetaiPageeState extends State<DetaiPagee> {
                 ),
               ),
             ),
+            // Spacer between buttons
             SizedBox(
               width: 20.0,
               child: Expanded(
                 child: Container(
+                  // Button for toggling selection
                   decoration: BoxDecoration(
                     color: Constants.primaryColor,
                     borderRadius: BorderRadius.circular(
@@ -308,13 +326,14 @@ class _DetaiPageeState extends State<DetaiPagee> {
                     onTap: () {
                       setState(
                         () {
+                          // Toggle the selection state of the plant
                           bool isSelected =
                               toggleSelected(plantL[widget.id].isSelected);
                           plantL[widget.id].isSelected = isSelected;
                         },
                       );
                     },
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'سبد خرید',
                         style: TextStyle(
@@ -334,7 +353,7 @@ class _DetaiPageeState extends State<DetaiPagee> {
   }
 }
 
-// inishial date get for plant deatels
+// Widget for displaying plant details
 class PlantDetils extends StatelessWidget {
   final String title;
   final String planFeature;
@@ -349,6 +368,7 @@ class PlantDetils extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
+        // Display the title of the plant detail
         Text(
           title,
           style: TextStyle(
@@ -357,6 +377,7 @@ class PlantDetils extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        // Display the value of the plant detail
         Text(
           planFeature,
           style: TextStyle(

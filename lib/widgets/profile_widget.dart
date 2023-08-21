@@ -1,46 +1,53 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_application_1/const/constansts.dart';
 
-class BuildOptions extends StatelessWidget {
+class SettingOption extends StatelessWidget {
   final IconData icon;
   final String title;
 
-  const BuildOptions({
-    Key? key,
-    required this.title,
+  const SettingOption({
+    super.key,
     required this.icon,
-  }) : super(key: key);
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 18.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 18.0,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          // Back arrow icon
           Icon(
             Icons.arrow_back_ios,
-            size: 16,
-            color: Constants.blackColor.withOpacity(0.4),
+            size: 16.0,
+            color: Constants.blackColor.withOpacity(
+              0.4,
+            ),
           ),
+          // Setting title and additional icon
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 title,
                 style: TextStyle(
-                  fontFamily: 'IranSans',
-                  color: Constants.blackColor,
                   fontSize: 18.0,
+                  color: Constants.blackColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const SizedBox(width: 5.0),
+              const SizedBox(
+                height: 5.0,
+              ),
               Icon(
-                icon,
-                color: Constants.blackColor.withOpacity(0.5),
-                size: 23.0,
+                Icons.abc, // Replace with the desired icon
+                color: Constants.blackColor.withOpacity(
+                  0.5,
+                ),
               ),
             ],
           ),

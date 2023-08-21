@@ -20,6 +20,8 @@ class _RootPageState extends State<RootPage> {
   int bottomIndex = 0;
   List<Plant> favorites = [];
   List<Plant> myCart = [];
+
+  // Function to return a list of pages for the bottom navigation
   List<Widget> page() {
     return [
       const HomePage(),
@@ -45,10 +47,12 @@ class _RootPageState extends State<RootPage> {
     Icons.shopping_cart,
     Icons.people,
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // Custom app bar with icon and title
         title: Padding(
           padding: const EdgeInsets.only(
             top: 30.0,
@@ -77,6 +81,7 @@ class _RootPageState extends State<RootPage> {
         index: bottomIndex,
         children: page(),
       ),
+      // Floating action button for scanning
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
@@ -94,7 +99,9 @@ class _RootPageState extends State<RootPage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // Animated bottom navigation bar
       bottomNavigationBar: AnimatedBottomNavigationBar(
+        // Configuration for the bottom navigation bar
         splashColor: Constants.primaryColor,
         activeColor: Constants.primaryColor,
         activeIndex: bottomIndex,
@@ -106,6 +113,7 @@ class _RootPageState extends State<RootPage> {
           setState(
             () {
               bottomIndex = index;
+              // Retrieve favorited and cart items from Plant class
               final List<Plant> addF = Plant.getFavoritedPlants();
               final List<Plant> addCard = Plant.addedToCartPlants();
               favorites = addF.toSet().toList();

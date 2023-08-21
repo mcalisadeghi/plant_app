@@ -17,10 +17,10 @@ class CardPage extends StatefulWidget {
 class _CardPageState extends State<CardPage> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: widget.addtocard.isEmpty
           ? Center(
+              // Displayed when the cart is empty
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,7 +35,7 @@ class _CardPageState extends State<CardPage> {
                     height: 20.0,
                   ),
                   const Text(
-                    ' سبد خرید  نداری!',
+                    'سبد خرید نداری!',
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                       fontWeight: FontWeight.w300,
@@ -50,10 +50,10 @@ class _CardPageState extends State<CardPage> {
                 horizontal: 120.0,
                 vertical: 30.0,
               ),
-              // height: size.height * 0.5,
               child: Column(
                 children: [
                   Expanded(
+                    // List of plants added to the cart
                     child: ListView.builder(
                       physics: const BouncingScrollPhysics(),
                       itemCount: widget.addtocard.length,

@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                   decoration: BoxDecoration(
                     color: Constants.primaryColor.withOpacity(
                       0.1,
-                    ),
+                    ), // Background color of the search box
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   child: Row(
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                         Icons.mic,
                         color: Constants.blackColor.withOpacity(
                           0.6,
-                        ),
+                        ), // Color of the microphone icon
                       ),
                       const Expanded(
                         child: Directionality(
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                               contentPadding: EdgeInsets.only(
                                 right: 5.0,
                               ),
-                              hintText: 'جستجو...',
+                              hintText: 'جستجو...', // Placeholder text
                               border: InputBorder.none,
                               focusedBorder: InputBorder.none,
                             ),
@@ -86,7 +86,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Icon(
                         Icons.search,
-                        color: Constants.blackColor.withOpacity(0.6),
+                        color: Constants.blackColor
+                            .withOpacity(0.6), // Color of the search icon
                       ),
                     ],
                   ),
@@ -119,16 +120,18 @@ class _HomePageState extends State<HomePage> {
                         );
                       },
                       child: Text(
-                        _plantTypes[index],
+                        _plantTypes[index], // Display the plant type text
                         style: TextStyle(
-                          fontFamily: 'iranSans',
+                          fontFamily:
+                              'iranSans', // Use the 'iranSans' font family
                           fontSize: 16.0,
                           fontWeight: selectedIndex == index
                               ? FontWeight.bold
                               : FontWeight.w300,
                           color: selectedIndex == index
-                              ? Constants.primaryColor
-                              : Constants.blackColor,
+                              ? Constants
+                                  .primaryColor // Highlighted text color if selected
+                              : Constants.blackColor, // Default text color
                         ),
                       ),
                     ),
@@ -136,6 +139,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+
             // Product One
             SizedBox(
               height: size.height * 0.3,

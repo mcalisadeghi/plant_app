@@ -24,6 +24,7 @@ class _FavoritePageState extends State<FavoritePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  // Display an image for an empty favorite list
                   SizedBox(
                     height: 100.0,
                     child: Image.asset(
@@ -33,6 +34,7 @@ class _FavoritePageState extends State<FavoritePage> {
                   const SizedBox(
                     height: 20.0,
                   ),
+                  // Display a message for an empty favorite list
                   const Text(
                     'علاقه مندی نداری!',
                     textDirection: TextDirection.rtl,
@@ -50,13 +52,15 @@ class _FavoritePageState extends State<FavoritePage> {
                 vertical: 30.0,
               ),
               height: size.height * 0.5,
+              // Display the list of favorite plants
               child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: widget.addtofavorite.length,
-                  itemBuilder: (context, index) {
-                    return NewPlantWidg(
-                        plantList: widget.addtofavorite, index: index);
-                  }),
+                physics: const BouncingScrollPhysics(),
+                itemCount: widget.addtofavorite.length,
+                itemBuilder: (context, index) {
+                  return NewPlantWidg(
+                      plantList: widget.addtofavorite, index: index);
+                },
+              ),
             ),
     );
   }

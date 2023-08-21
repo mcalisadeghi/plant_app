@@ -20,6 +20,7 @@ class NewPlantWidg extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
+        // Navigate to detail page when tapped
         Navigator.push(
           context,
           PageTransition(
@@ -41,11 +42,13 @@ class NewPlantWidg extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Price and unit
             Row(
               children: [
                 SizedBox(
-                    height: 20.0,
-                    child: Image.asset('assets/images/PriceUnit-green.png')),
+                  height: 20.0,
+                  child: Image.asset('assets/images/PriceUnit-green.png'),
+                ),
                 const SizedBox(width: 5.0),
                 Text(
                   _plantList[index].price.toString(),
@@ -57,6 +60,7 @@ class NewPlantWidg extends StatelessWidget {
                 ),
               ],
             ),
+            // Plant image and details
             Stack(
               clipBehavior: Clip.none,
               children: [
