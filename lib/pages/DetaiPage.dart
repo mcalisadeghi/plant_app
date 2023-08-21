@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/const/constansts.dart';
 import 'package:flutter_application_1/models/plant.dart';
+import 'package:flutter_application_1/pages/card_page.dart';
 
 class DetaiPagee extends StatefulWidget {
   final int id;
@@ -14,6 +15,10 @@ class DetaiPagee extends StatefulWidget {
 }
 
 class _DetaiPageeState extends State<DetaiPagee> {
+  bool toggleSelected(bool isSelected) {
+    return !isSelected;
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Plant> plantL = Plant.plantList;
@@ -129,7 +134,6 @@ class _DetaiPageeState extends State<DetaiPagee> {
             ),
           ),
           Positioned(
-            // top: 400.0,
             bottom: 0.0,
             left: 0.0,
             right: 0.0,
@@ -265,9 +269,17 @@ class _DetaiPageeState extends State<DetaiPagee> {
                   ),
                 ],
               ),
-              child: const Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
+              child: GestureDetector(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CardPage(
+                              addtocard: Plant.addedToCartPlants(),
+                            ))),
+                child: const Icon(
+                  Icons.shopping_cart,
+                  color: Colors.white,
+                ),
               ),
             ),
             SizedBox(
@@ -292,12 +304,23 @@ class _DetaiPageeState extends State<DetaiPagee> {
                       ),
                     ],
                   ),
-                  child: const Center(
-                    child: Text(
-                      'سبد خرید',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.white,
+                  child: InkResponse(
+                    onTap: () {
+                      setState(
+                        () {
+                          bool isSelected =
+                              toggleSelected(plantL[widget.id].isSelected);
+                          plantL[widget.id].isSelected = isSelected;
+                        },
+                      );
+                    },
+                    child: Center(
+                      child: Text(
+                        'سبد خرید',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
