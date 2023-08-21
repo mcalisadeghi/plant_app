@@ -118,7 +118,7 @@ class _ScanPageState extends State<ScanPage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  QRScanView(), // به صفحه‌ی اسکن کردن منتقل می‌شویم
+                                  const QRScanView(), // به صفحه‌ی اسکن کردن منتقل می‌شویم
                             ),
                           );
                         }
@@ -128,7 +128,7 @@ class _ScanPageState extends State<ScanPage> {
                         height: 100.0,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Text(
@@ -159,7 +159,9 @@ class QRScanView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('اسکنر QR'),
+        title: const Text(
+          'اسکنر QR',
+        ),
       ),
       body: Center(
         child: Column(
@@ -171,8 +173,8 @@ class QRScanView extends StatelessWidget {
               version: QrVersions.auto,
               size: 200.0,
             ),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'کد QR را اسکن کنید',
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
