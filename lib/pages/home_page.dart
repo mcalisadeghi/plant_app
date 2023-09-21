@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/const/constansts.dart';
 import 'package:flutter_application_1/models/plant.dart';
-import 'package:flutter_application_1/pages/DetaiPage.dart';
-
+import 'package:flutter_application_1/pages/detai_page.dart';
 import 'package:flutter_application_1/widgets/plant_widget.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -74,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                               contentPadding: EdgeInsets.only(
                                 right: 5.0,
                               ),
-                              hintText: 'جستجو...', // Placeholder text
+                              hintText: 'جستجو...',
                               border: InputBorder.none,
                               focusedBorder: InputBorder.none,
                             ),
@@ -86,8 +85,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Icon(
                         Icons.search,
-                        color: Constants.blackColor
-                            .withOpacity(0.6), // Color of the search icon
+                        color: Constants.blackColor.withOpacity(
+                          0.6,
+                        ), // Color of the search icon
                       ),
                     ],
                   ),
@@ -122,8 +122,6 @@ class _HomePageState extends State<HomePage> {
                       child: Text(
                         _plantTypes[index], // Display the plant type text
                         style: TextStyle(
-                          fontFamily:
-                              'iranSans', // Use the 'iranSans' font family
                           fontSize: 16.0,
                           fontWeight: selectedIndex == index
                               ? FontWeight.bold

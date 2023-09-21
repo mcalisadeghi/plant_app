@@ -22,7 +22,7 @@ class _ScanPageState extends State<ProfilePage> {
         height: size.height,
         width: size.width,
         child: Column(
-          children: [
+          children: <Widget>[
             // User Profile Avatar and Name
             Container(
               width: 150.0,
@@ -83,26 +83,26 @@ class _ScanPageState extends State<ProfilePage> {
             // List of User Setting Options
             const Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: <Widget>[
                 SettingOption(
                   icon: Icons.percent,
                   title: 'پروفایل من ',
                 ),
                 SettingOption(
                   icon: Icons.percent,
-                  title: 'پروفایل من ',
+                  title: 'تنظیمات',
                 ),
                 SettingOption(
                   icon: Icons.percent,
-                  title: 'پروفایل من ',
+                  title: 'اطلاع رسانی‌ها',
                 ),
                 SettingOption(
                   icon: Icons.percent,
-                  title: 'پروفایل من ',
+                  title: 'شبکه‌های اجتماعی',
                 ),
                 SettingOption(
                   icon: Icons.percent,
-                  title: 'پروفایل من ',
+                  title: 'خروج',
                 ),
               ],
             ),

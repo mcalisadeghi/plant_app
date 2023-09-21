@@ -19,20 +19,20 @@ class _ScanPageState extends State<ScanPage> {
     if (!cameraStatus.isGranted) {
       var permissionStatus = await Permission.camera.request();
       if (permissionStatus.isGranted) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => QRScanView(),
-          ),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => QRScanView(),
+        //   ),
+        // );
       }
     } else {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => QRScanView(),
-        ),
-      );
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (context) => QRScanView(),
+      //   ),
+      // );
     }
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/const/constansts.dart';
 import 'package:flutter_application_1/models/plant.dart';
-import 'package:flutter_application_1/pages/DetaiPage.dart';
+import 'package:flutter_application_1/pages/detai_page.dart';
 import 'package:page_transition/page_transition.dart';
 
 class NewPlantWidg extends StatelessWidget {
